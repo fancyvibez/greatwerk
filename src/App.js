@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import { API } from 'aws-amplify';
-import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
+import { withAuthenticator, Authenticator } from '@aws-amplify/ui-react';
 import { listNotes } from './graphql/queries';
 import { createNote as createNoteMutation, deleteNote as deleteNoteMutation } from './graphql/mutations';
+import '@aws-amplify/ui-react/styles.css';
 
 const initialFormState = { name: '', description: '' }
 
@@ -58,7 +59,16 @@ function App() {
           ))
         }
       </div>
-      <AmplifySignOut />
+      <Authenticator>
+      {({ signOut, user }) => (
+        <div className="App">
+          <p>
+            Hey {user.username}, welcome to my channel, with auth!
+          </p>
+          <button onClick={signOut}>Sign out</button>
+        </div>
+      )}
+    </Authenticator>
     </div>
   );
 }
