@@ -6,8 +6,10 @@
     "defaultAuthType": {
       "mode": "API_KEY",
       "expirationTime": 7,
-      "apiKeyExpirationDate": "2022-09-13T07:25:42.351Z",
+      "apiKeyExpirationDate": "2022-09-13T07:49:41.189Z",
       "keyDescription": "greatwerk"
-    }
+    },
+    "conflictResolution": {},
+    "additionalAuthTypes": []
   }
 }
